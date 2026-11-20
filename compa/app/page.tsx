@@ -47,6 +47,11 @@ const levels = [
   { name: "University", icon: "📖", slug: "university" },
 ];
 
+async function getCopyrightYear() {
+  "use cache";
+  return new Date().getFullYear();
+}
+
 /** Renders one feature card on the landing page. */
 function renderFeatureCard(feature: (typeof features)[number]) {
   return (
@@ -81,7 +86,9 @@ function renderLearningLevel(level: (typeof levels)[number]) {
 }
 
 /** Renders COMPA's landing page and links to the interactive learning tools. */
-export default function Home() {
+export default async function Home() {
+  const copyrightYear = await getCopyrightYear();
+
   return (
     <main className="min-h-screen bg-white text-slate-900">
       {/* Navigation */}
@@ -293,7 +300,7 @@ export default function Home() {
             </p>
           </div>
           <p className="text-sm text-slate-500">
-            © {new Date().getFullYear()} COMPA. All rights reserved.
+            © {copyrightYear} COMPA. All rights reserved.
           </p>
         </div>
       </footer>

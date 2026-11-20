@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -63,7 +64,7 @@ export function generateStaticParams() {
 }
 
 /** Renders the education-level page selected by the dynamic route segment. */
-export default async function LearningLevelPage({
+async function LearningLevelContent({
   params,
 }: {
   params: Promise<{ level: string }>;
@@ -125,5 +126,26 @@ export default async function LearningLevelPage({
         </Link>
       </article>
     </main>
+  );
+}
+
+/** Keeps link-specific route params out of the shared navigation shell. */
+export default function LearningLevelPage({
+  params,
+}: {
+  params: Promise<{ level: string }>;
+}) {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-slate-900">
+          <p className="mx-auto max-w-4xl px-6 py-16 text-slate-600">
+            Loading learning path...
+          </p>
+        </main>
+      }
+    >
+      <LearningLevelContent params={params} />
+    </Suspense>
   );
 }
