@@ -6,7 +6,7 @@ COMPA is a React learning app built with Next.js. Students can answer quiz quest
 
 The project demonstrates interactive React components, form handling, client-side state, and data-driven routes.
 
-**Software demo video:** Not recorded yet.
+**Software demo video:** https://youtu.be/MM_XJ2tiM08.
 
 ---
 
@@ -19,7 +19,6 @@ The project demonstrates interactive React components, form handling, client-sid
 - **TypeScript** — application language with strict type checking enabled
 - **Tailwind CSS 4** — styling
 
----
 
 ## Features
 
@@ -48,9 +47,6 @@ The project demonstrates interactive React components, form handling, client-sid
 - Add searchable learning resources and educational videos
 - Record and link a software demonstration video
 - Add automated tests for the interactive features
-
----
-
 ## How to Run
 
 1. Clone the repository and open its top-level directory.
